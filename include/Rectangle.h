@@ -13,5 +13,5 @@ public:
 	double getHeight() const;
 
 private:
-
+	Vertex bottomLeft, topRight;
 };

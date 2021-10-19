@@ -1,8 +1,13 @@
 #include <iomanip>
 #include "Board.h"
+#include "Rectangle.h"
 
-Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
+Vertex Rectangle::getBottomLeft() const
 {
-
+	return bottomLeft;
 }
 
+Vertex Rectangle::getTopRight()const
+{
+	return topRight;
+}
