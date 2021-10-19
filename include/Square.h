@@ -1,4 +1,5 @@
 #include "Board.h"
+#include "Rectangle.h"
 
 class Square {
 public:
@@ -8,4 +9,15 @@ public:
 	Vertex getBottomLeft();
 	Vertex getTopRight();
 	double getLength();
+
+	//shared functions
+	void draw(Board& board);
+	Rectangle getBoundingRectangle();
+	double getArea();
+	double getPerimeter();
+	double getCenter();
+	bool scale(double factor);
+
+
+
 };
