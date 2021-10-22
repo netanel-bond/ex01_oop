@@ -16,9 +16,11 @@ public:
 	double getHeight() const;
 
 private:
-	bool is_dot_valid(const Vertex& dot);
-	bool is_dot_valid(double x, double y);
+	bool are_dots_valid(const Vertex& bottomLeft, const Vertex& topRight);
 	void assign_default_values();
+//		delete if manage to succesfully write initiliazinion in constructors
+	void copy_data(const Vertex& bottomLeft, const Vertex& topRight);
+
 	Vertex m_bottomLeft, m_topRight;
-	double width, height;
+	double m_width, m_height;
 };

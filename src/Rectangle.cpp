@@ -4,23 +4,76 @@
 #include "macros.h"
 
 Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
-	/*:m_bottomLeft.m_col(bottomLeft.m_col), m_topRight.m_col(topRight.m_col),
-	m_bottomLeft.m_row(bottomLeft.m_row), m_topRight.m_row(topRight.m_row)*/
+	//:m_bottomLeft.m_col(bottomLeft.m_col), m_topRight.m_col(topRight.m_col),
+	//m_bottomLeft.m_row(bottomLeft.m_row), m_topRight.m_row(topRight.m_row)
 {
-	if (!(is_dot_valid(bottomLeft) && is_dot_valid(topRight))
+
+	if (!are_dots_valid(bottomLeft, topRight))
+	{
+		assign_default_values();
+		return;
+	}
+		
+	copy_data(bottomLeft, topRight);
+}
+
+Rectangle::Rectangle(const Vertex vertices[2])
+{
+	if (!are_dots_valid(&vertices[0], &vertices[1]))
+	{
+		assign_default_values();
+		return;
+	}
+
+	copy_data(&vertices[0], &vertices[1]);
+}
+
+Rectangle::Rectangle(double x0, double y0, double x1, double y1)
+{
+	m_bottomLeft.m_col = x0;
+	m_bottomLeft.m_row = y0;
+	m_topRight.m_col = x1;
+	m_topRight.m_row = y1;
+
+	if (!are_dots_valid(const Vertex& m_bottomLeft, const Vertex& m_topRight))
 		assign_default_values();
 }
 
-bool Rectangle::is_dot_valid(const Vertex& dot)
+Rectangle::Rectangle(const Vertex& start, double width, double height)
 {
-	return (!(dot.m_col > MAX_COL || dot.m_col < 0 ||
-				dot.m_row > MAX_ROW || dot.m_row < 0));
+	if (start width < 0 || height < 0)
+	{
+		assign_default_values;
+		return;
+	}
+
+	m_topRight.m_col = start.m_col + width;
+	m_topRight.m_row = start.m_row + height;
+
+	if (!are_dots_valid(start, &m_topRight))
+		assign_default_values();
 }
 
-bool Rectangle::is_dot_valid(double x, double y)
+void Rectangle::copy_data(const Vertex& bottomLeft, const Vertex& topRight)
 {
-	return (!(x > MAX_COL || x < 0 || y > MAX_ROW || y < 0));
+	m_bottomLeft.m_col = bottomLeft.m_col;
+	m_bottomLeft.m_row = bottomLeft.m_row;
+	m_topRight.m_row = topRight.m_col;
+	m_topRight.m_col = topRight.m_row;
 }
+
+
+bool Rectangle::are_dots_valid(const Vertex& bottomLeft, const Vertex& topRight)
+{
+
+	bool within_border = bottomLeft.isValid() && topRight.isValid;
+
+	bool valid_relativity = topRight.isToTheRightOf(&bottomLeft) &&
+							topRight.isHigherThan(&bottomLeft);
+
+	return within_border && valid_relativity;
+}
+
 
 void Rectangle::assign_default_values()
 {
