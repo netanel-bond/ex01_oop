@@ -3,6 +3,15 @@
 
 #include <iostream>
 
+void Vertex::scaledValue(const Vertex& centerValue, Vertex& other, const double factor)
+{
+    double colDif = centerValue.m_col - this->m_col;
+    double rowDif = centerValue.m_row - this->m_row;
+
+    other.m_col = centerValue.m_col - (colDif * factor);
+    other.m_row = centerValue.m_row - (rowDif * factor);
+}
+
 bool Vertex::isHigherThan(const Vertex& other) const
 {
     return m_row > other.m_row;
