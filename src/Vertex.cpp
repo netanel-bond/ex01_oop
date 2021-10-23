@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+//  this - the old dot
+//  other - the new dot
 void Vertex::scaledValue(const Vertex& centerValue, Vertex& other, const double factor)
 {
     double colDif = centerValue.m_col - this->m_col;

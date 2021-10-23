@@ -15,8 +15,6 @@ Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 	}
 		
 	copy_data(bottomLeft, topRight);
-
-	calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex vertices[2])
@@ -28,9 +26,8 @@ Rectangle::Rectangle(const Vertex vertices[2])
 	}
 
 	copy_data(vertices[0], vertices[1]);
-
-	calc_width_height();
 }
+
 
 Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 {
@@ -41,8 +38,6 @@ Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 
 	if (!are_dots_valid(m_bottomLeft, m_topRight))
 		assign_default_values();
-
-	calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex& start, double width, double height)
@@ -58,8 +53,6 @@ Rectangle::Rectangle(const Vertex& start, double width, double height)
 
 	if (!are_dots_valid(start, m_topRight))
 		assign_default_values();
-
-	calc_width_height();
 }
 
 void Rectangle::copy_data(const Vertex& bottomLeft, const Vertex& topRight)
@@ -77,8 +70,8 @@ bool Rectangle::are_dots_valid(const Vertex& bottomLeft, const Vertex& topRight)
 
 	bool within_border = bottomLeft.isValid() && topRight.isValid();
 
-	bool valid_relativity = topRight.isToTheRightOf(bottomLeft) &&
-							topRight.isHigherThan(bottomLeft);
+	bool valid_relativity = !(bottomLeft.isToTheRightOf(topRight) &&
+							bottomLeft.isHigherThan(topRight));
 
 	return within_border && valid_relativity;
 }
@@ -89,6 +82,8 @@ void Rectangle::assign_default_values()
 	m_bottomLeft.m_row = 10;
 	m_topRight.m_col = 30;
 	m_topRight.m_row = 20;
+
+	calc_width_height();
 }
 
 void Rectangle::calc_width_height()
@@ -128,15 +123,36 @@ double Rectangle::getArea() const
 
 double Rectangle::getPerimeter() const
 {
+//		check if rectangle is just a line
+	if (m_bottomLeft.m_col - m_topRight.m_col == 0)
+		return m_height;
+	else if (m_bottomLeft.m_row - m_topRight.m_row == 0)
+		return m_width;
+
 	return m_width * 2 + m_height * 2;
 }
 
 Vertex Rectangle::getCenter() const
 {
+
+	bool same_col = m_bottomLeft.m_col - m_topRight.m_col == 0;
+	bool same_row = m_bottomLeft.m_row - m_topRight.m_row == 0;
+
+//		check if both dots are the same
+	if (same_col && same_row)
+		return m_bottomLeft;
+
 	Vertex center_dot;
 
-	center_dot.m_col = (m_topRight.m_col - m_bottomLeft.m_col) / 2;
-	center_dot.m_row = (m_topRight.m_row - m_bottomLeft.m_row) / 2;
+//		assume rectangle is normal
+	center_dot.m_col = m_bottomLeft.m_col + (m_topRight.m_col - m_bottomLeft.m_col) / 2;
+	center_dot.m_row = m_bottomLeft.m_row + (m_topRight.m_row - m_bottomLeft.m_row) / 2;
+
+	if (same_col)
+		center_dot.m_col = m_bottomLeft.m_col;
+
+	else if (same_row)
+		center_dot.m_row = m_bottomLeft.m_row;
 
 	return center_dot;
 }

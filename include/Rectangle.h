@@ -25,8 +25,6 @@ public:
 	double getWidth() const;
 	double getHeight() const;
 
-	//double scale = 1;
-
 private:
 //		helper functions
 	bool are_dots_valid(const Vertex& bottomLeft, const Vertex& topRight);
