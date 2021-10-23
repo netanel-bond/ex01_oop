@@ -14,6 +14,30 @@ void Vertex::scaledValue(const Vertex& centerValue, Vertex& other, const double 
     other.m_row = centerValue.m_row - (rowDif * factor);
 }
 
+//  check if rectangle/square are valid
+//  this - bottom left, other - top right
+bool Vertex::relative_valid_with(const Vertex& topRight) const
+{
+    return !(this->isToTheRightOf(topRight) ||
+                    this->isHigherThan(topRight));
+}
+
+void Vertex::copy_data(const Vertex& topRight, Vertex& m_bottomLeft, Vertex& m_topRight) const
+{
+    m_bottomLeft.m_col = this->m_col;
+    m_bottomLeft.m_row = this->m_row;
+    m_topRight.m_row = topRight.m_row;
+    m_topRight.m_col = topRight.m_col;
+}
+
+void Vertex::assign_default_quad(Vertex& topRight)
+{
+    this->m_col = 20;
+    this->m_row = 10;
+    topRight.m_col = 30;
+    topRight.m_row = 20;
+}
+
 bool Vertex::isHigherThan(const Vertex& other) const
 {
     return m_row > other.m_row;

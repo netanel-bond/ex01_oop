@@ -2,4 +2,5 @@
                                               "Vertex.cpp"
                                               "Utilities.cpp"
                                               "Board.cpp"
-                                              "Rectangle.cpp")
+                                              "Rectangle.cpp"
+                                              "Square.cpp")
