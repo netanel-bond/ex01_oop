@@ -4,9 +4,9 @@
 #include "macros.h"
 #include "Vertex.h"
 
+
 Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
-	//:m_bottomLeft.m_col(bottomLeft.m_col), m_topRight.m_col(topRight.m_col),
-	//m_bottomLeft.m_row(bottomLeft.m_row), m_topRight.m_row(topRight.m_row)
+	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
 	if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
 		bottomLeft.copy_data(topRight, m_bottomLeft, m_topRight);
@@ -57,6 +57,13 @@ Rectangle::Rectangle(const Vertex& start, double width, double height)
 	calc_width_height();
 }
 
+void Rectangle::check_dots(const Vertex& bottomLeft, const Vertex& topRight)
+{
+	if (!(bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight)))
+
+		m_bottomLeft.assign_default_quad(m_topRight);
+}
+
 void Rectangle::calc_width_height()
 {
 	m_width = m_topRight.m_col - m_bottomLeft.m_col;
@@ -79,6 +86,7 @@ void Rectangle::draw(Board& board) const
 	board.drawLine(m_topRight, bottomRight);
 	board.drawLine(m_topRight, topLeft);
 }
+
 
 Rectangle Rectangle::getBoundingRectangle() const
 {
@@ -105,50 +113,12 @@ double Rectangle::getPerimeter() const
 
 Vertex Rectangle::getCenter() const
 {
-
-	bool same_col = m_bottomLeft.m_col - m_topRight.m_col == 0;
-	bool same_row = m_bottomLeft.m_row - m_topRight.m_row == 0;
-
-//		check if both dots are the same
-	if (same_col && same_row)
-		return m_bottomLeft;
-
-	Vertex center_dot;
-
-//		assume rectangle is normal
-	center_dot.m_col = m_bottomLeft.m_col + (m_topRight.m_col - m_bottomLeft.m_col) / 2;
-	center_dot.m_row = m_bottomLeft.m_row + (m_topRight.m_row - m_bottomLeft.m_row) / 2;
-
-	if (same_col)
-		center_dot.m_col = m_bottomLeft.m_col;
-
-	else if (same_row)
-		center_dot.m_row = m_bottomLeft.m_row;
-
-	return center_dot;
+	return m_bottomLeft.getCenter_quad(m_topRight);
 }
 
 bool Rectangle::scale(double factor)
 {
-	if (factor <= 0)
-		return false;
-
-	Vertex centerDot = getCenter();
-
-	Vertex newBottomLeft, newTopRight;
-
-	m_bottomLeft.scaledValue(centerDot, newBottomLeft, factor);
-	m_topRight.scaledValue(centerDot, newTopRight, factor);
-
-	const Vertex cpyTopRight = newTopRight;
-
-	if (newBottomLeft.isValid() && newTopRight.isValid() && newBottomLeft.relative_valid_with(newTopRight))
-	{
-		newBottomLeft.copy_data(newTopRight, m_bottomLeft, m_topRight);
-		return true;
-	}
-		
-	return false;
+	return m_bottomLeft.scale_quad(m_topRight, factor);
 }
 
 Vertex Rectangle::getBottomLeft() const

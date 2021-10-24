@@ -25,6 +25,8 @@ public:
 	double getWidth() const;
 	double getHeight() const;
 
+	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
+
 private:
 //		helper functions
 	void calc_width_height();
