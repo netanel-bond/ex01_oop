@@ -25,12 +25,10 @@ public:
 	double getWidth() const;
 	double getHeight() const;
 
+	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
+
 private:
 //		helper functions
-	bool are_dots_valid(const Vertex& bottomLeft, const Vertex& topRight);
-	void assign_default_values();
-//		delete if manage to succesfully write initiliazinion in constructors
-	void copy_data(const Vertex& bottomLeft, const Vertex& topRight);
 	void calc_width_height();
 
 //		members
