@@ -8,6 +8,7 @@
 Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
+
 	if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
 		bottomLeft.copy_data(topRight, m_bottomLeft, m_topRight);
 	else

@@ -33,12 +33,28 @@ Rectangle.h
 ../include/Triangle.h
 Board.h
 ../include/Board.h
+Rectangle.h
+../include/Rectangle.h
+
+../include/Utilities.h
+Vertex.h
+../include/Vertex.h
 
 ../include/Vertex.h
 iosfwd
 -
 
 ../include/macros.h
+
+/Users/bar/CLionProjects/ex1/src/Triangle.cpp
+iomanip
+-
+Vertex.h
+/Users/bar/CLionProjects/ex1/src/Vertex.h
+Triangle.h
+/Users/bar/CLionProjects/ex1/src/Triangle.h
+Utilities.h
+/Users/bar/CLionProjects/ex1/src/Utilities.h
 
 /Users/bar/CLionProjects/ex1/src/main.cpp
 iostream
