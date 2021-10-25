@@ -91,6 +91,9 @@
 		<Unit filename="/Users/bar/CLionProjects/ex1/src/Square.cpp">
 			<Option target="ex01"/>
 		</Unit>
+		<Unit filename="/Users/bar/CLionProjects/ex1/src/Triangle.cpp">
+			<Option target="ex01"/>
+		</Unit>
 		<Unit filename="/Users/bar/CLionProjects/ex1/src/Utilities.cpp">
 			<Option target="ex01"/>
 		</Unit>

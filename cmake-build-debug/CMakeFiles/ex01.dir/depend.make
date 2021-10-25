@@ -13,6 +13,18 @@ CMakeFiles/ex01.dir/src/Rectangle.cpp.o: \
  ../include/Vertex.h \
  ../include/macros.h \
  ../src/Rectangle.cpp
+CMakeFiles/ex01.dir/src/Square.cpp.o: \
+ ../include/Board.h \
+ ../include/Rectangle.h \
+ ../include/Square.h \
+ ../include/Vertex.h \
+ ../include/macros.h \
+ ../src/Square.cpp
+CMakeFiles/ex01.dir/src/Triangle.cpp.o: \
+ ../include/Board.h \
+ ../include/Triangle.h \
+ ../include/Vertex.h \
+ ../src/Triangle.cpp
 CMakeFiles/ex01.dir/src/Utilities.cpp.o: \
  ../include/Utilities.h \
  ../include/Vertex.h \

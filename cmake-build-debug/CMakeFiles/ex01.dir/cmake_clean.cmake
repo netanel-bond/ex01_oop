@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/ex01.dir/src/Board.cpp.o"
   "CMakeFiles/ex01.dir/src/Rectangle.cpp.o"
   "CMakeFiles/ex01.dir/src/Square.cpp.o"
+  "CMakeFiles/ex01.dir/src/Triangle.cpp.o"
   "CMakeFiles/ex01.dir/src/Utilities.cpp.o"
   "CMakeFiles/ex01.dir/src/Vertex.cpp.o"
   "CMakeFiles/ex01.dir/src/main.cpp.o"

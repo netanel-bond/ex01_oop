@@ -11,6 +11,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/bar/CLionProjects/ex1/src/Board.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Board.cpp.o"
   "/Users/bar/CLionProjects/ex1/src/Rectangle.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Rectangle.cpp.o"
   "/Users/bar/CLionProjects/ex1/src/Square.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Square.cpp.o"
+  "/Users/bar/CLionProjects/ex1/src/Triangle.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Triangle.cpp.o"
   "/Users/bar/CLionProjects/ex1/src/Utilities.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Utilities.cpp.o"
   "/Users/bar/CLionProjects/ex1/src/Vertex.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/Vertex.cpp.o"
   "/Users/bar/CLionProjects/ex1/src/main.cpp" "/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir/src/main.cpp.o"
