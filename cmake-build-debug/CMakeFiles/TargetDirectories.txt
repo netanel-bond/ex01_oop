@@ -1,0 +1,7 @@
+/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/CMakeFiles/ex01.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/include/CMakeFiles/rebuild_cache.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/include/CMakeFiles/edit_cache.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/src/CMakeFiles/rebuild_cache.dir
+/Users/bar/CLionProjects/ex1/cmake-build-debug/src/CMakeFiles/edit_cache.dir
