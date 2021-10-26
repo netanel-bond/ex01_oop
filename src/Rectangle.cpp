@@ -8,22 +8,27 @@
 Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
-	if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
+	/*if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
 		bottomLeft.copy_data(topRight, m_bottomLeft, m_topRight);
 	else
-		m_bottomLeft.assign_default_quad(m_topRight);
+		m_bottomLeft.assign_default_quad(m_topRight);*/
+
+	check_dots(bottomLeft, topRight);
 
 	calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex vertices[2])
+	:m_bottomLeft(vertices[0]), m_topRight(vertices[1])
 {
-	if (vertices[0].isValid() && vertices[1].isValid() && vertices[0].relative_valid_with(vertices[1]))
+	/*if (vertices[0].isValid() && vertices[1].isValid() && vertices[0].relative_valid_with(vertices[1]))
 		vertices[0].copy_data(vertices[1], m_bottomLeft, m_topRight);
 	else
-		m_bottomLeft.assign_default_quad(m_topRight);
+		m_bottomLeft.assign_default_quad(m_topRight);*/
+
+	Rectangle(vertices[0], vertices[1]);
 	
-	calc_width_height();
+	//calc_width_height();
 }
 
 
@@ -34,10 +39,14 @@ Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 	m_topRight.m_col = x1;
 	m_topRight.m_row = y1;
 
-	if (!(m_bottomLeft.isValid() && m_topRight.isValid() && m_bottomLeft.relative_valid_with(m_topRight)))
-		m_bottomLeft.assign_default_quad(m_topRight);
 
-	calc_width_height();
+
+	/*if (!(m_bottomLeft.isValid() && m_topRight.isValid() && m_bottomLeft.relative_valid_with(m_topRight)))
+		m_bottomLeft.assign_default_quad(m_topRight);*/
+
+	Rectangle(m_bottomLeft, m_topRight);
+
+	//calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex& start, double width, double height)
@@ -51,10 +60,12 @@ Rectangle::Rectangle(const Vertex& start, double width, double height)
 	m_topRight.m_col = start.m_col + width;
 	m_topRight.m_row = start.m_row + height;
 
-	if (!(start.isValid() && m_topRight.isValid() && start.relative_valid_with(m_topRight)))
-		m_bottomLeft.assign_default_quad(m_topRight);
+	/*if (!(start.isValid() && m_topRight.isValid() && start.relative_valid_with(m_topRight)))
+		m_bottomLeft.assign_default_quad(m_topRight);*/
 
-	calc_width_height();
+	Rectangle(start, m_topRight);
+
+	//calc_width_height();
 }
 
 void Rectangle::check_dots(const Vertex& bottomLeft, const Vertex& topRight)
@@ -97,7 +108,7 @@ Rectangle Rectangle::getBoundingRectangle() const
 
 double Rectangle::getArea() const
 {
-	return m_width * m_height;
+	return m_width * m_height * m_factor * m_factor;
 }
 
 double Rectangle::getPerimeter() const
@@ -108,7 +119,7 @@ double Rectangle::getPerimeter() const
 	else if (m_bottomLeft.m_row - m_topRight.m_row == 0)
 		return m_width;
 
-	return m_width * 2 + m_height * 2;
+	return (m_width * 2 + m_height * 2) * m_factor;
 }
 
 Vertex Rectangle::getCenter() const
@@ -118,7 +129,12 @@ Vertex Rectangle::getCenter() const
 
 bool Rectangle::scale(double factor)
 {
-	return m_bottomLeft.scale_quad(m_topRight, factor);
+	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
+
+	if (is_scale_valid)
+		m_factor = factor;
+
+	return is_scale_valid;
 }
 
 Vertex Rectangle::getBottomLeft() const
