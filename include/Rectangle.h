@@ -33,5 +33,5 @@ private:
 
 //		members
 	Vertex m_bottomLeft, m_topRight;
-	double m_width, m_height;
+	double m_width, m_height, m_factor = 1;
 };
