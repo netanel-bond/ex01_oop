@@ -3,4 +3,5 @@
                                               "Utilities.cpp"
                                               "Board.cpp"
                                               "Rectangle.cpp"
-                                              "Square.cpp")
+                                              "Square.cpp"
+                                              "Triangle.cpp")

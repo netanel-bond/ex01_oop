@@ -21,12 +21,13 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 
 
 }
-Rectangle Triangle::getBoundingRectangle() const
-{
-    Vertex bottomLeft;
+//Rectangle Triangle::getBoundingRectangle() const
+//{
+//    Vertex bottomLeft;
+//
+//    Rectangle rect(m_v0,m_v2);
+//}
 
-    Rectangle rect(m_v0,m_v2);
-}
 bool Triangle::scale(double factor)
 {
     return m_v2.scale_quad(m_v0, factor);
@@ -57,10 +58,11 @@ double Triangle::getPerimeter() const
 {
     return m_lengh*3;
 }
-Vertex Triangle::getCenter() const
-{
+//Vertex Triangle::getCenter() const
+//{
+//
+//}
 
-}
 double Triangle::getArea() const
 {
     return (m_lengh*m_height)/2;

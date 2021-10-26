@@ -9,31 +9,13 @@ Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
 
-
-	if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
-	/*if (bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight))
-
-		bottomLeft.copy_data(topRight, m_bottomLeft, m_topRight);
-	else
-		m_bottomLeft.assign_default_quad(m_topRight);*/
-
 	check_dots(bottomLeft, topRight);
 
 	calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex vertices[2])
-	:m_bottomLeft(vertices[0]), m_topRight(vertices[1])
-{
-	/*if (vertices[0].isValid() && vertices[1].isValid() && vertices[0].relative_valid_with(vertices[1]))
-		vertices[0].copy_data(vertices[1], m_bottomLeft, m_topRight);
-	else
-		m_bottomLeft.assign_default_quad(m_topRight);*/
-
-	Rectangle(vertices[0], vertices[1]);
-	
-	//calc_width_height();
-}
+	:Rectangle(vertices[0], vertices[1]) {}
 
 
 Rectangle::Rectangle(double x0, double y0, double x1, double y1)
@@ -43,14 +25,10 @@ Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 	m_topRight.m_col = x1;
 	m_topRight.m_row = y1;
 
+	if (!(m_bottomLeft.isValid() && m_topRight.isValid() && m_bottomLeft.relative_valid_with(m_topRight)))
+		m_bottomLeft.assign_default_quad(m_topRight);
 
-
-	/*if (!(m_bottomLeft.isValid() && m_topRight.isValid() && m_bottomLeft.relative_valid_with(m_topRight)))
-		m_bottomLeft.assign_default_quad(m_topRight);*/
-
-	Rectangle(m_bottomLeft, m_topRight);
-
-	//calc_width_height();
+	calc_width_height();
 }
 
 Rectangle::Rectangle(const Vertex& start, double width, double height)
@@ -64,12 +42,7 @@ Rectangle::Rectangle(const Vertex& start, double width, double height)
 	m_topRight.m_col = start.m_col + width;
 	m_topRight.m_row = start.m_row + height;
 
-	/*if (!(start.isValid() && m_topRight.isValid() && start.relative_valid_with(m_topRight)))
-		m_bottomLeft.assign_default_quad(m_topRight);*/
-
 	Rectangle(start, m_topRight);
-
-	//calc_width_height();
 }
 
 void Rectangle::check_dots(const Vertex& bottomLeft, const Vertex& topRight)
