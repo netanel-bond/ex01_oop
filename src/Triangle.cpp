@@ -6,6 +6,11 @@
 #include "Triangle.h"
 #include "Utilities.h"
 
+
+Vertex Triangle::getCenter() const
+{
+    return m_v0.get_center_tri(m_v1,m_v2);
+}
 Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 :m_v0(v0),m_v2(v1),m_height(height)
 {
@@ -21,12 +26,12 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 
 
 }
-//Rectangle Triangle::getBoundingRectangle() const
-//{
-//    Vertex bottomLeft;
-//
-//    Rectangle rect(m_v0,m_v2);
-//}
+Rectangle Triangle::getBoundingRectangle() const
+{
+    Vertex bottomLeft;
+
+    Rectangle rect(m_v0,m_v2);
+}
 
 bool Triangle::scale(double factor)
 {

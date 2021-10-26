@@ -2,6 +2,29 @@
 #include "macros.h"
 
 #include <iostream>
+Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
+{
+
+    bool same_col = this->m_col - top.m_col == 0;
+    bool same_row = this->m_row - top.m_row == 0;
+
+    //		check if both dots are the same
+    if (same_col && same_row)
+        return *this;
+
+    Vertex center_dot;
+
+    center_dot.m_col=(this->m_col+baseRight.m_col+top.m_col)/3;
+    center_dot.m_row=(this->m_row+baseRight.m_row+top.m_row)/3;
+
+    if (same_col)
+        center_dot.m_col = this->m_col;
+
+    else if (same_row)
+        center_dot.m_row = this->m_row;
+
+    return center_dot;
+}
 
 Vertex Vertex::getCenter_quad(const Vertex& topRight) const
 {

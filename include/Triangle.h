@@ -1,5 +1,6 @@
 #include "Board.h"
 #include "Rectangle.h"
+#include "Vertex.h"
 
 class Triangle {
 public:

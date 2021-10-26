@@ -1,4 +1,4 @@
-# Install script for directory: /Users/bar/CLionProjects/ex1/src
+# Install script for directory: /Users/bar/CLionProjects/ex01_oop_workinig/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
