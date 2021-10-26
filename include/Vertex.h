@@ -12,18 +12,26 @@ struct Vertex
 
 //      general functions
     bool isValid() const;
+    bool isHigherThan(const Vertex& other) const;
+    bool isToTheRightOf(const Vertex& other) const;
     
+    //CHANGE TO GENERAL
+    void copy_data(const Vertex& topRight, Vertex& m_bottomLeft, Vertex& m_topRight) const;
+    void scaledValue(const Vertex& centerValue, Vertex& topRight, const double factor) const;
 
 //      QUAD FUNCTIONS
     void assign_default_quad(Vertex& topRight);
-//		delete if manage to succesfully write initiliazinion in constructors
-    void copy_data(const Vertex& topRight, Vertex& m_bottomLeft, Vertex& m_topRight) const;
     bool relative_valid_with(const Vertex& topRight) const;
-    bool isHigherThan(const Vertex& other) const;
-    bool isToTheRightOf(const Vertex& other) const;
     Vertex getCenter_quad(const Vertex& topRight) const;
-    void scaledValue(const Vertex& centerValue, Vertex& topRight, const double factor) const;
     bool scale_quad(Vertex& m_topRight, const double factor);
+
+ //     TRIANGLE FUNCTIONS
+    void  assign_default_tri(Vertex& rightBase, Vertex& top);
+    Vertex getCenter_tri(const Vertex& baseRight, const Vertex& top) const;
+
+
+
+
 };
 
 std::istream& operator>>(std::istream& istr, Vertex& v);
