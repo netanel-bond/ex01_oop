@@ -25,7 +25,7 @@ struct Vertex
 
  //     TRIANGLE FUNCTIONS
     void  assign_default_tri(Vertex& rightBase, Vertex& top);
-    Vertex getCenter_tri(const Vertex& baseRight, const Vertex& top) const;
+    Vertex get_center_tri(const Vertex& baseRight, const Vertex& top) const;
 
 
 
