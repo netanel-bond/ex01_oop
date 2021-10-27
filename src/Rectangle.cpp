@@ -61,13 +61,17 @@ void Rectangle::calc_width_height()
 
 void Rectangle::draw(Board& board) const
 {
-	Vertex topLeft, bottomRight;
+	//Vertex topLeft, bottomRight;
 
-	topLeft.m_col = m_bottomLeft.m_col;
-	topLeft.m_row = m_topRight.m_row;
+	//topLeft.m_col = m_bottomLeft.m_col;
+	//topLeft.m_row = m_topRight.m_row;
 
-	bottomRight.m_col = m_topRight.m_col;
-	bottomRight.m_row = m_bottomLeft.m_row;
+	Vertex topLeft(m_bottomLeft.m_col, m_topRight.m_row);
+
+	//bottomRight.m_col = m_topRight.m_col;
+	//bottomRight.m_row = m_bottomLeft.m_row;
+
+	Vertex bottomRight(m_topRight.m_col, m_bottomLeft.m_row);
 
 	board.drawLine(m_bottomLeft, bottomRight);
 	board.drawLine(m_bottomLeft, topLeft);

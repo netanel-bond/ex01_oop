@@ -22,11 +22,11 @@ Square::Square(const Vertex& start, double length)
 		return;
 	}
 		
-	Vertex topRight;
-	topRight.m_col = start.m_col + length;
-	topRight.m_row = start.m_row + length;
+	Vertex topRight(start.m_col + length, start.m_row + length);
 
-	Square(start, topRight);
+	check_dots(m_bottomLeft, m_topRight);
+
+	calc_length();
 }
 
 void Square::draw(Board& board) const

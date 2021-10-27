@@ -11,13 +11,13 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 {
     calc_3rd_v(v0, v1, height);
 
-    if (v0.isValid() && v1.isValid() &&
-        doubleEqual(distance(v0, v1), distance(v1, m_v2) && v0.relative_valid_with(v1) &&
-        doubleEqual(distance(v1, m_v2), distance(v0, m_v2))))
-    {
-        m_v0.copy_data(v0, m_v1, m_v2);
-    } else
-        m_v0.assign_default_quad(m_v1);
+    //if (v0.isValid() && v1.isValid() &&
+    //    doubleEqual(distance(v0, v1), distance(v1, m_v2) && v0.relative_valid_with(v1) &&
+    //    doubleEqual(distance(v1, m_v2), distance(v0, m_v2))))
+    //{
+    //    m_v0.copy_data(v0, m_v1, m_v2);
+    //} else
+    //    m_v0.assign_default_quad(m_v1);
 
 
 }
@@ -46,14 +46,14 @@ void Triangle::calc_3rd_v(const Vertex &v0, const Vertex &v1, double height) {
 
 }
 
-Triangle::Triangle(const Vertex vertices[3])
-{
-    if (vertices[0].isValid() && vertices[1].isValid() && vertices[2].isValid() &&
-        vertices[2].relative_valid_with(vertices[1]))
-        vertices[0].copy_data(m_v0, m_v1, m_v2);
-    else
-        m_v0.assign_default_quad(m_v1);
-}
+//Triangle::Triangle(const Vertex vertices[3])
+//{
+//    if (vertices[0].isValid() && vertices[1].isValid() && vertices[2].isValid() &&
+//        vertices[2].relative_valid_with(vertices[1]))
+//        vertices[0].copy_data(m_v0, m_v1, m_v2);
+//    else
+//        m_v0.assign_default_quad(m_v1);
+//}
 double Triangle::getPerimeter() const
 {
     return m_lengh*3;
