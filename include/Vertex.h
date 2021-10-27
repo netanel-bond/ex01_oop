@@ -16,12 +16,12 @@ struct Vertex
     bool isToTheRightOf(const Vertex& other) const;
     void scaledValue(const Vertex& center_dot, Vertex& new_dot, const double factor) const;
 
-
 //      QUAD FUNCTIONS
     void assign_default_quad(Vertex& topRight);
     bool relative_valid_with(const Vertex& topRight) const;
     Vertex getCenter_quad(const Vertex& topRight) const;
     bool scale_quad(Vertex& m_topRight, const double factor);
+
 
  //     TRIANGLE FUNCTIONS
     void  assign_default_tri(Vertex& rightBase, Vertex& top);
