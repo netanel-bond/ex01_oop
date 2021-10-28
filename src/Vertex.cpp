@@ -3,7 +3,7 @@
 #include "Triangle.h"
 #include <iostream>
 #include <cmath>
-
+//------------------------------
 Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
 {
     Vertex center_dot;
@@ -13,6 +13,7 @@ Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
 
     return center_dot;
 }
+//------------------------------
 Vertex Vertex::getCenter_quad(const Vertex& topRight) const
 {
     bool same_col = this->m_col - topRight.m_col == 0;
@@ -36,7 +37,7 @@ Vertex Vertex::getCenter_quad(const Vertex& topRight) const
 
     return center_dot;
 }
-
+//------------------------------
 //  this - the old dot
 //  other - the new dot
 void Vertex::scaledValue(const Vertex &center_dot, Vertex &new_dot, const double factor) const
@@ -47,7 +48,7 @@ void Vertex::scaledValue(const Vertex &center_dot, Vertex &new_dot, const double
     new_dot.m_col = center_dot.m_col - (colDif * factor);
     new_dot.m_row = center_dot.m_row - (rowDif * factor);
 }
-
+//------------------------------
 bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const Vertex& center_dot, const double factor)
 {
     if (factor <=0)
@@ -70,7 +71,7 @@ bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const Vertex& center_dot, con
 
     return false;
 }
-
+//------------------------------
 bool Vertex::scale_quad(Vertex& m_topRight, const double factor)
 {
     if (factor <= 0)
@@ -93,7 +94,7 @@ bool Vertex::scale_quad(Vertex& m_topRight, const double factor)
 
     return false;
 }
-
+//------------------------------
 //  check if rectangle/square are valid
 //  this - bottom left, other - top right
 bool Vertex::relative_valid_with(const Vertex& topRight) const
@@ -102,7 +103,7 @@ bool Vertex::relative_valid_with(const Vertex& topRight) const
                     this->isHigherThan(topRight));
 }
 
-
+//------------------------------
 void Vertex::assign_default_tri(  Vertex &rightBase,  Vertex &top) {
     this->m_col=20;
     this->m_row= 20;
@@ -113,7 +114,7 @@ void Vertex::assign_default_tri(  Vertex &rightBase,  Vertex &top) {
 }
 
 
-
+//------------------------------
 void Vertex::assign_default_quad(Vertex& topRight)
 {
     this->m_col = 20;
@@ -121,27 +122,27 @@ void Vertex::assign_default_quad(Vertex& topRight)
     topRight.m_col = 30;
     topRight.m_row = 20;
 }
-
+//------------------------------
 bool Vertex::isHigherThan(const Vertex& other) const
 {
     return m_row > other.m_row;
 }
-
+//------------------------------
 bool Vertex::isToTheRightOf(const Vertex& other) const
 {
     return m_col > other.m_col;
 }
-
+//------------------------------
 bool Vertex::isValid() const
 {
     return m_col >= 0 && m_col <= MAX_COL && m_row >= 0 && m_row <= MAX_ROW;
 }
-
+//------------------------------//------------------------------
 std::istream& operator>>(std::istream& istr, Vertex& v)
 {
     return istr >> v.m_col >> v.m_row;
 }
-
+//------------------------------
 std::ostream& operator<<(std::ostream& ostr, const Vertex& v)
 {
     return ostr << "(" << v.m_col << ", " << v.m_row << ")";
