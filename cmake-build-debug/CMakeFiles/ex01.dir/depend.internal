@@ -40,6 +40,9 @@ CMakeFiles/ex01.dir/src/Utilities.cpp.o
  ../include/Vertex.h
  /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Utilities.cpp
 CMakeFiles/ex01.dir/src/Vertex.cpp.o
+ ../include/Board.h
+ ../include/Rectangle.h
+ ../include/Triangle.h
  ../include/Vertex.h
  ../include/macros.h
  /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Vertex.cpp

@@ -10,6 +10,7 @@
 
 
 
+
 Hourglass::Hourglass(const Triangle& upper, const Triangle& lower)
     :m_upper(upper), m_lower(lower)
 {
@@ -79,12 +80,19 @@ void Hourglass::assign_default()
 
 bool Hourglass::scale(double factor)
 {
-    bool is_scale_valid = m_lower.scale(factor) && m_upper.scale(factor);
+    Vertex v0=m_lower.getVertex(0),v1=m_lower.getVertex(1),v2=m_lower.getVertex(2),
+           v0up=m_upper.getVertex(0), v1up=m_upper.getVertex(1),v2up=m_upper.getVertex(2);
 
+    bool is_scale_valid = v0.scale_tri(v1,v2,v2,factor) &&
+                          v0up.scale_tri(v1up,v2up,v2up,factor);
+    Vertex  dotsDown[] = { v0, v1, v2 },
+            dotsUp[]={v0up,v1up,v2up};
     if (is_scale_valid)
     {
-        m_length = m_lower.getLength();
-        m_height = m_lower.getHeight() * 2;
+        Triangle newUp(dotsUp), newDown(dotsDown);
+        m_upper=newUp;
+        m_lower=newDown;
+        calc_length_height();
 
         return true;
     }

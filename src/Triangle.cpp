@@ -60,7 +60,7 @@ Rectangle Triangle::getBoundingRectangle() const
 
 bool Triangle::scale(double factor)
 {
-   if (m_v0.scale_tri(m_v1,m_v2, factor))
+   if (m_v0.scale_tri(m_v1,m_v2,m_v0.get_center_tri(m_v1,m_v2),factor))
    {
        calcTriangleLength();
        return true;

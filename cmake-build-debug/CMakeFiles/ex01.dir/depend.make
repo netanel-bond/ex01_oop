@@ -40,6 +40,9 @@ CMakeFiles/ex01.dir/src/Utilities.cpp.o: \
  ../include/Vertex.h \
  ../src/Utilities.cpp
 CMakeFiles/ex01.dir/src/Vertex.cpp.o: \
+ ../include/Board.h \
+ ../include/Rectangle.h \
+ ../include/Triangle.h \
  ../include/Vertex.h \
  ../include/macros.h \
  ../src/Vertex.cpp

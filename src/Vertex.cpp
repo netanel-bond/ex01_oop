@@ -1,6 +1,6 @@
 #include "Vertex.h"
 #include "macros.h"
-
+#include "Triangle.h"
 #include <iostream>
 #include <cmath>
 
@@ -47,12 +47,12 @@ void Vertex::scaledValue(const Vertex &center_dot, Vertex &new_dot, const double
     new_dot.m_col = center_dot.m_col - (colDif * factor);
     new_dot.m_row = center_dot.m_row - (rowDif * factor);
 }
-bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const double factor)
+
+bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const Vertex& center_dot, const double factor)
 {
     if (factor <=0)
         return false;
 
-    Vertex center_dot=this->get_center_tri(m_v1,m_v2);
 
     Vertex new_base_left, new_top,new_base_right;
 

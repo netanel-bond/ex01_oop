@@ -1,5 +1,5 @@
 #pragma once
-
+class Triangle;
 #include <iosfwd>
 
 struct Vertex
@@ -26,10 +26,9 @@ struct Vertex
  //     TRIANGLE FUNCTIONS
     void  assign_default_tri(Vertex& rightBase, Vertex& top);
     Vertex get_center_tri(const Vertex& baseRight, const Vertex& top) const;
-    bool scale_tri(Vertex& m_v1 , Vertex& m_v2,const double factor);
+    bool scale_tri(Vertex& m_v1 , Vertex& m_v2,const Vertex& center_dot,const double factor);
 
 // Hourglass functions
-
     //void assign_default_hourglass();
 
 };
