@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/bar/CLionProjects/ex01_oop_workinig/src/Board.cpp" "/Users/bar/CLionProjects/ex01_oop_workinig/cmake-build-debug/CMakeFiles/ex01.dir/src/Board.cpp.o"
+  "/Users/bar/CLionProjects/ex01_oop_workinig/src/Hourglass.cpp" "/Users/bar/CLionProjects/ex01_oop_workinig/cmake-build-debug/CMakeFiles/ex01.dir/src/Hourglass.cpp.o"
   "/Users/bar/CLionProjects/ex01_oop_workinig/src/Rectangle.cpp" "/Users/bar/CLionProjects/ex01_oop_workinig/cmake-build-debug/CMakeFiles/ex01.dir/src/Rectangle.cpp.o"
   "/Users/bar/CLionProjects/ex01_oop_workinig/src/Square.cpp" "/Users/bar/CLionProjects/ex01_oop_workinig/cmake-build-debug/CMakeFiles/ex01.dir/src/Square.cpp.o"
   "/Users/bar/CLionProjects/ex01_oop_workinig/src/Triangle.cpp" "/Users/bar/CLionProjects/ex01_oop_workinig/cmake-build-debug/CMakeFiles/ex01.dir/src/Triangle.cpp.o"

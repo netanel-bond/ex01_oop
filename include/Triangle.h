@@ -31,5 +31,5 @@ private:
     double m_height ,m_lengh;
     Vertex m_v0,m_v1,m_v2;
 
-    void calc_3rd_v(const Vertex &v0, const Vertex &v1, double height);
+    void calc_3rd_v(const Vertex &v0, const Vertex &v1,double height);
 };
