@@ -4,4 +4,5 @@
                                               "Board.cpp"
                                               "Rectangle.cpp"
                                               "Square.cpp"
-                                              "Triangle.cpp")
+                                              "Triangle.cpp"
+                                                "Hourglass.cpp")
