@@ -102,7 +102,7 @@ bool Vertex::relative_valid_with(const Vertex& topRight) const
 }
 
 
-void Vertex::assign_default_tri(Vertex &rightBase, Vertex &top) {
+void Vertex::assign_default_tri( Vertex &rightBase,  Vertex &top) {
     this->m_col=20;
     this->m_row= 20;
     rightBase.m_col=30;
