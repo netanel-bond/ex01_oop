@@ -64,6 +64,30 @@ void Hourglass::assign_default()
 
 }
 
+void Hourglass::draw(Board &board) const
+{
+    m_lower.draw(board);
+    m_upper.draw(board);
+}
+Rectangle Hourglass::getBoundingRectangle() const
+{
+    Vertex bottom_left(m_lower.getVertex(0).m_col,m_lower.getVertex(0).m_row ),
+            top_right(m_upper.getVertex(1).m_col,m_upper.getVertex(1).m_row);
+    Rectangle rect(bottom_left,top_right);
+    return rect;
+}
+Vertex  Hourglass :: getCenter() const
+{
+    return m_upper.getVertex(2);
+}
+double Hourglass:: getArea()const
+{
+    return m_lower.getArea()+m_upper.getArea();
+}
+double Hourglass:: getPerimeter() const
+{
+    return m_lower.getPerimeter()+m_upper.getPerimeter();
+}
 double Hourglass::getLength() const {
     return m_length;
 }

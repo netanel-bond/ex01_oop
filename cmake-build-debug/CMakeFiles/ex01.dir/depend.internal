@@ -6,7 +6,7 @@ CMakeFiles/ex01.dir/src/Board.cpp.o
  ../include/Utilities.h
  ../include/Vertex.h
  ../include/macros.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Board.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Board.cpp
 CMakeFiles/ex01.dir/src/Hourglass.cpp.o
  ../include/Board.h
  ../include/Hourglass.h
@@ -14,35 +14,35 @@ CMakeFiles/ex01.dir/src/Hourglass.cpp.o
  ../include/Triangle.h
  ../include/Utilities.h
  ../include/Vertex.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Hourglass.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.cpp
 CMakeFiles/ex01.dir/src/Rectangle.cpp.o
  ../include/Board.h
  ../include/Rectangle.h
  ../include/Vertex.h
  ../include/macros.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Rectangle.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Rectangle.cpp
 CMakeFiles/ex01.dir/src/Square.cpp.o
  ../include/Board.h
  ../include/Rectangle.h
  ../include/Square.h
  ../include/Vertex.h
  ../include/macros.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Square.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Square.cpp
 CMakeFiles/ex01.dir/src/Triangle.cpp.o
  ../include/Board.h
  ../include/Rectangle.h
  ../include/Triangle.h
  ../include/Utilities.h
  ../include/Vertex.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Triangle.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Triangle.cpp
 CMakeFiles/ex01.dir/src/Utilities.cpp.o
  ../include/Utilities.h
  ../include/Vertex.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Utilities.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Utilities.cpp
 CMakeFiles/ex01.dir/src/Vertex.cpp.o
  ../include/Vertex.h
  ../include/macros.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/Vertex.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Vertex.cpp
 CMakeFiles/ex01.dir/src/main.cpp.o
  ../include/Board.h
  ../include/Hourglass.h
@@ -51,4 +51,4 @@ CMakeFiles/ex01.dir/src/main.cpp.o
  ../include/Triangle.h
  ../include/Vertex.h
  ../include/macros.h
- /Users/bar/CLionProjects/ex01_oop_workinig/src/main.cpp
+ /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/main.cpp

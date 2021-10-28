@@ -1,4 +1,4 @@
-# Install script for directory: /Users/bar/CLionProjects/ex01_oop_workinig/include
+# Install script for directory: /Users/bar/CLionProjects/ex01_oop/netnal-oop/include
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
