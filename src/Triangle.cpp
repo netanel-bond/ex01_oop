@@ -58,7 +58,7 @@ bool Triangle::scale(double factor)
 {
    if (m_v0.scale_tri(m_v1,m_v2, factor)) {
 
-       m_factor = factor;
+
        calcTriangleLengh();
        return true;
    }
