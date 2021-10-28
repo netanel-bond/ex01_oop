@@ -26,10 +26,10 @@ public:
 private:
 //		helper functions
 	void calc_length();
-	static static bool are_width_height_equal(const Vertex& bottomLeft, const Vertex& topRight);
+	bool are_width_height_equal(const Vertex& bottomLeft, const Vertex& topRight);
 
 
 //		members
 	Vertex m_bottomLeft, m_topRight;
-	double m_length{}, m_factor = 1;
+	double m_length, m_factor = 1;
 };
