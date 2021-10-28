@@ -17,19 +17,22 @@ public:
     bool scale(double factor);
 
 
-    Triangle assign_default_triangle();
+    //Triangle assign_default_triangle();
 
 
 
     double getLength() const;
 	double getHeight() const;
 
+
 private:
-    void calcTriangleLengh();
+    void calcTriangleLength();
     void calcTriangleHeight();
 
-    double m_height ,m_lengh ,m_factor=1;
+    double m_height ,m_length ;
     Vertex m_v0,m_v1,m_v2;
 
     Vertex calc_3rd_v(const Vertex &v0, const Vertex &v1,double height);
+    bool check_triangle(const Vertex &v0, const Vertex &v1, const Vertex &v2) const;
+
 };
