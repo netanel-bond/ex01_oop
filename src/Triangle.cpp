@@ -34,8 +34,8 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 // check if traingle is valid or not
 bool Triangle::check_triangle(const Vertex &v0, const Vertex &v1, const Vertex &v2) const {
     return (v0.isValid() && v2.isValid() &&
-            doubleEqual(distance(v0, v1),distance(v1, v2) && doubleEqual(v0.m_row,v1.m_row) &&
-            doubleEqual(distance(v0, v1), distance(v0, v2))));
+            doubleEqual(distance(v0, v1),distance(v1, v2)) && doubleEqual(v0.m_row,v1.m_row) &&
+            doubleEqual(distance(v0, v1), distance(v0, v2)));
 }
 //------------------------------
 // constructors
@@ -94,7 +94,7 @@ Triangle::Triangle(const Vertex vertices[3])
 {
     calcTriangleHeight();
 
-    if ((check_triangle(vertices[0], vertices[1], vertices[2]))) {
+    if (!(check_triangle(vertices[0], vertices[1], vertices[2]))) {
         m_v0.assign_default_tri(m_v1, m_v2);
     }
 
