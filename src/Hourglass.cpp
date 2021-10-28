@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Utilities.h"
 #include "Vertex.h"
-#include "Triangle.h"
+
 
 
 Hourglass::Hourglass(const Triangle& upper,const Triangle& lower)
@@ -16,8 +16,10 @@ Hourglass::Hourglass(const Triangle& upper,const Triangle& lower)
         upper.getVertex(2).m_col!=lower.getVertex(2).m_col&&
         upper.getVertex(2).m_row !=lower.getVertex(2).m_row)
     {
-       Vertex v0(20,20), v1(30,20),v2(25,20+sqrt(75));
-        lower(v0,v1,lower.getHeight());
+
+    lower.getVertex(0).assign_default_tri(lower.getVertex(1),lower.getVertex(2)) ;
+
+
 
 
     }

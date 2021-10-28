@@ -11,7 +11,6 @@ Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
 
     return center_dot;
 }
-
 Vertex Vertex::getCenter_quad(const Vertex& topRight) const
 {
     bool same_col = this->m_col - topRight.m_col == 0;
@@ -102,7 +101,7 @@ bool Vertex::relative_valid_with(const Vertex& topRight) const
 }
 
 
-void Vertex::assign_default_tri( Vertex &rightBase,  Vertex &top) {
+void Vertex::assign_default_tri(  Vertex &rightBase,  Vertex &top) {
     this->m_col=20;
     this->m_row= 20;
     rightBase.m_col=30;
@@ -110,6 +109,8 @@ void Vertex::assign_default_tri( Vertex &rightBase,  Vertex &top) {
     top.m_col=25;
     top.m_row=20+sqrt(75);
 }
+
+
 
 void Vertex::assign_default_quad(Vertex& topRight)
 {
