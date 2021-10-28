@@ -4,6 +4,7 @@
 #include "Hourglass.h"
 #include <iomanip>
 #include <iostream>
+#include <cmath>
 #include "Utilities.h"
 #include "Vertex.h"
 
@@ -22,8 +23,8 @@ Hourglass::Hourglass(const Triangle& lower)
     :m_lower(lower), m_upper(lower)
 {
     m_height = m_lower.getHeight() * 2;
-    Vertex baseLeftUp(m_lower.getVertex(0).m_col, m_lower.getVertex(0).m_row + m_height);
-    Vertex baseRightUp(m_lower.getVertex(1).m_col, m_lower.getVertex(1).m_row + m_height);
+    Vertex baseLeftUp(m_lower.getVertex(0).m_col, m_lower.getVertex(0).m_row + int(m_height));
+    Vertex baseRightUp(m_lower.getVertex(1).m_col, m_lower.getVertex(1).m_row + int(m_height));
 
     if (!(baseLeftUp.isValid() && baseRightUp.isValid()))
     {
@@ -99,8 +100,9 @@ void Hourglass::calc_length_height()
 
 void Hourglass::draw(Board &board) const
 {
-    m_lower.draw(board);
     m_upper.draw(board);
+    m_lower.draw(board);
+
 }
 
 Rectangle Hourglass::getBoundingRectangle() const

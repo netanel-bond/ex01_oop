@@ -18,11 +18,9 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 
     Vertex v2=calc_3rd_v(v0, v1,height);
 //add the if to function
-    if (!check_triangle(v0, v1, v2))
+    if (check_triangle(v0, v1, v2))
     {
-
         m_v0.assign_default_tri(m_v1, m_v2);
-
     }
         calcTriangleLength();
         calcTriangleHeight();
@@ -34,7 +32,7 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 
 bool Triangle::check_triangle(const Vertex &v0, const Vertex &v1, const Vertex &v2) const {
     return (v0.isValid() && v2.isValid() &&
-                doubleEqual(distance(v0, v1),distance(v1, v2) && v0.m_row==v1.m_row &&
+            doubleEqual(distance(v0, v1),distance(v1, v2) && doubleEqual(v0.m_row,v1.m_row) &&
             doubleEqual(distance(v0, v1), distance(v0, v2))));
 }
 
@@ -90,12 +88,13 @@ Triangle::Triangle(const Vertex vertices[3])
 {
     calcTriangleHeight();
 
-    if (!(check_triangle(vertices[0], vertices[1], vertices[2])))
-         m_v0.assign_default_tri(m_v1,m_v2);
+    if ((check_triangle(vertices[0], vertices[1], vertices[2]))) {
+        m_v0.assign_default_tri(m_v1, m_v2);
+    }
 
     calcTriangleLength();
     calcTriangleHeight();
-    std::cout<< "height" << m_height;
+
 
 }
 

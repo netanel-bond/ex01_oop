@@ -24,6 +24,12 @@ Triangle.h
 Board.h
 ../include/Board.h
 
+../include/Square.h
+Board.h
+../include/Board.h
+Rectangle.h
+../include/Rectangle.h
+
 ../include/Triangle.h
 Board.h
 ../include/Board.h
@@ -32,23 +38,33 @@ Rectangle.h
 Vertex.h
 ../include/Vertex.h
 
-../include/Utilities.h
-Vertex.h
-../include/Vertex.h
-
 ../include/Vertex.h
 iosfwd
 -
 
-/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.cpp
-Hourglass.h
-/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.h
-iomanip
--
+../include/macros.h
+
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/main.cpp
 iostream
 -
-Utilities.h
-/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Utilities.h
+string
+-
+string_view
+-
+array
+-
+macros.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/macros.h
 Vertex.h
 /Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Vertex.h
+Board.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Board.h
+Rectangle.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Rectangle.h
+Triangle.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Triangle.h
+Square.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Square.h
+Hourglass.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.h
 
