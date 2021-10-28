@@ -14,6 +14,7 @@ Vertex Triangle::getCenter() const
 Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 :m_v0(v0),m_v2(v1),m_height(height)
 {
+
     calc_3rd_v(v0, v1,height);
 //add the if to function
     if (!(v0.isValid() && v1.isValid() &&
@@ -26,6 +27,8 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
     }
         calcTriangleLengh();
         calcTriangleHeight();
+
+    calc_3rd_v(v0, v1, height);
 
 
 }
@@ -82,6 +85,7 @@ Triangle::Triangle(const Vertex vertices[3])
     calcTriangleHeight();
     std::cout<< "height" << m_height;
 }
+
 double Triangle::getPerimeter() const
 {
     if (m_v0.m_col==m_v2.m_col)
