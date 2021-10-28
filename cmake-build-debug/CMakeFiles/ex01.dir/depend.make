@@ -9,12 +9,11 @@ CMakeFiles/ex01.dir/src/Board.cpp.o: \
  ../src/Board.cpp
 CMakeFiles/ex01.dir/src/Hourglass.cpp.o: \
  ../include/Board.h \
+ ../include/Hourglass.h \
  ../include/Rectangle.h \
  ../include/Triangle.h \
  ../include/Utilities.h \
  ../include/Vertex.h \
- ../include/hourglass.h \
- ../include/vertex.h \
  ../src/Hourglass.cpp
 CMakeFiles/ex01.dir/src/Rectangle.cpp.o: \
  ../include/Board.h \

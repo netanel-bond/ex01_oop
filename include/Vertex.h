@@ -30,7 +30,7 @@ struct Vertex
 
 // Hourglass functions
 
-    void assign_default_hourglass()
+    void assign_default_hourglass();
 
 };
 

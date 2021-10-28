@@ -13,28 +13,31 @@ Square::Square(const Vertex& bottomLeft, const Vertex& topRight)
 }
 
 Square::Square(const Vertex& start, double length)
-	:m_bottomLeft(start), m_length(length)
+	:m_bottomLeft(start)
 {
+
 	if (length < 0)
 	{
 		m_bottomLeft.assign_default_quad(m_topRight);
 		return;
 	}
 
-	m_topRight.m_col = start.m_col + length;
-	m_topRight.m_row = start.m_row + length;
+	Vertex topRight;
+	topRight.m_col = start.m_col + length;
+	topRight.m_row = start.m_row + length;
 
-	check_dots(m_bottomLeft, m_topRight);
-
-	calc_length();
+	Square(start, topRight);
 }
 
 void Square::draw(Board& board) const
 {
 	Vertex topLeft, bottomRight;
 
-	Vertex topLeft(m_bottomLeft.m_col, m_topRight.m_row);
-	Vertex bottomRight(m_topRight.m_col, m_bottomLeft.m_row);
+	topLeft.m_col = m_bottomLeft.m_col;
+	topLeft.m_row = m_topRight.m_row;
+
+	bottomRight.m_col = m_topRight.m_col;
+	bottomRight.m_row = m_bottomLeft.m_row;
 
 	board.drawLine(m_bottomLeft, bottomRight);
 	board.drawLine(m_bottomLeft, topLeft);
@@ -79,7 +82,7 @@ Vertex Square::getCenter() const
 }
 bool Square::scale(double factor)
 {
-	bool is_scale_valid = m_bottomLeft.scale_quad(m_topRight, factor);
+	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
 
 	if (is_scale_valid)
 		m_factor = factor;
