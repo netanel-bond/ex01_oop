@@ -11,32 +11,43 @@
 
 Hourglass::Hourglass(const Triangle& upper, const Triangle& lower)
     :m_upper(upper), m_lower(lower)
-    
 {
-    if(upper.getLength() != lower.getLength() &&
-        upper.getVertex(2).m_col!=lower.getVertex(2).m_col&&
-        upper.getVertex(2).m_row !=lower.getVertex(2).m_row)
-    {
-        
-    }
+    if(check_tris(m_lower, m_upper))
+        assign_default();
 
-
+    calc_length_height();
 }
 
 Hourglass::Hourglass(const Triangle& lower)
-    :m_lower(lower)
+    :m_lower(lower), m_upper(lower)
 {
-    Vertex top_left(lower.getVertex(0).m_col, lower.getVertex(0).m_row + 2 * lower.getHeight()),
-        top_right(lower.getVertex(1).m_col, lower.getVertex(1).m_row + 2 * lower.getHeight());
+    m_height = m_lower.getHeight() * 2;
+    Vertex baseLeftUp(m_lower.getVertex(0).m_col, m_lower.getVertex(0).m_row + m_height);
+    Vertex baseRightUp(m_lower.getVertex(1).m_col, m_lower.getVertex(1).m_row + m_height);
 
-    if (top_left.isValid() && top_right.isValid())
+    if (!(baseLeftUp.isValid() && baseRightUp.isValid()))
     {
-        Triangle upper(top_left, top_right, -lower.getHeight());
+        assign_default();
+        return;
     }
-    else
-    {
+        
+    Vertex dotsUp[] = { baseLeftUp, baseRightUp, m_lower.getVertex(2) };
 
-    }
+    Triangle newUp(dotsUp);
+
+    m_upper = newUp;
+
+    if (check_tris(m_lower, m_upper))
+        assign_default();
+
+    calc_length_height();
+}
+
+bool Hourglass::check_tris(const Triangle& lower, const Triangle& upper)
+{
+    return (upper.getLength() != lower.getLength() &&
+        upper.getVertex(2).m_col != lower.getVertex(2).m_col &&
+        upper.getVertex(2).m_row != lower.getVertex(2).m_row && m_upper.getHeight() > -1);
 }
 
 
@@ -62,6 +73,28 @@ void Hourglass::assign_default()
 
     m_upper = tri_up;
 
+    calc_length_height();
+}
+
+bool Hourglass::scale(double factor)
+{
+    bool is_scale_valid = m_lower.scale(factor) && m_upper.scale(factor);
+
+    if (is_scale_valid)
+    {
+        m_length = m_lower.getLength();
+        m_height = m_lower.getHeight() * 2;
+
+        return true;
+    }
+        
+    return false;
+}
+
+void Hourglass::calc_length_height()
+{
+    m_length = m_lower.getLength();
+    m_height = m_lower.getHeight() * 2;
 }
 
 void Hourglass::draw(Board &board) const
@@ -69,6 +102,7 @@ void Hourglass::draw(Board &board) const
     m_lower.draw(board);
     m_upper.draw(board);
 }
+
 Rectangle Hourglass::getBoundingRectangle() const
 {
     Vertex bottom_left(m_lower.getVertex(0).m_col,m_lower.getVertex(0).m_row ),

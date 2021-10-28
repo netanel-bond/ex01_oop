@@ -68,7 +68,6 @@ bool Triangle::scale(double factor)
        return true;
    }
    return false;
-
 }
 
 void Triangle::draw(Board& board) const

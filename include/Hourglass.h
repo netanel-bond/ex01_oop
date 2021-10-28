@@ -19,7 +19,9 @@ public:
 	double getHeight() const;
 
 private:
+    bool check_tris(const Triangle& lower, const Triangle& upper);
     void assign_default();
+    void calc_length_height();
     Triangle m_lower, m_upper;
     double m_length , m_height;
 };
