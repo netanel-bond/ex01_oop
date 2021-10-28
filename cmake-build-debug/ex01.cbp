@@ -85,6 +85,9 @@
 		<Unit filename="/Users/bar/CLionProjects/ex01_oop_workinig/src/Board.cpp">
 			<Option target="ex01"/>
 		</Unit>
+		<Unit filename="/Users/bar/CLionProjects/ex01_oop_workinig/src/Hourglass.cpp">
+			<Option target="ex01"/>
+		</Unit>
 		<Unit filename="/Users/bar/CLionProjects/ex01_oop_workinig/src/Rectangle.cpp">
 			<Option target="ex01"/>
 		</Unit>

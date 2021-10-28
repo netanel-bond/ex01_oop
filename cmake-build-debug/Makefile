@@ -153,6 +153,30 @@ src/Board.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex01.dir/build.make CMakeFiles/ex01.dir/src/Board.cpp.s
 .PHONY : src/Board.cpp.s
 
+src/Hourglass.o: src/Hourglass.cpp.o
+.PHONY : src/Hourglass.o
+
+# target to build an object file
+src/Hourglass.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex01.dir/build.make CMakeFiles/ex01.dir/src/Hourglass.cpp.o
+.PHONY : src/Hourglass.cpp.o
+
+src/Hourglass.i: src/Hourglass.cpp.i
+.PHONY : src/Hourglass.i
+
+# target to preprocess a source file
+src/Hourglass.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex01.dir/build.make CMakeFiles/ex01.dir/src/Hourglass.cpp.i
+.PHONY : src/Hourglass.cpp.i
+
+src/Hourglass.s: src/Hourglass.cpp.s
+.PHONY : src/Hourglass.s
+
+# target to generate assembly for a file
+src/Hourglass.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ex01.dir/build.make CMakeFiles/ex01.dir/src/Hourglass.cpp.s
+.PHONY : src/Hourglass.cpp.s
+
 src/Rectangle.o: src/Rectangle.cpp.o
 .PHONY : src/Rectangle.o
 
@@ -309,6 +333,9 @@ help:
 	@echo "... src/Board.o"
 	@echo "... src/Board.i"
 	@echo "... src/Board.s"
+	@echo "... src/Hourglass.o"
+	@echo "... src/Hourglass.i"
+	@echo "... src/Hourglass.s"
 	@echo "... src/Rectangle.o"
 	@echo "... src/Rectangle.i"
 	@echo "... src/Rectangle.s"

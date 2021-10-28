@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ex01.dir/src/Board.cpp.o"
+  "CMakeFiles/ex01.dir/src/Hourglass.cpp.o"
   "CMakeFiles/ex01.dir/src/Rectangle.cpp.o"
   "CMakeFiles/ex01.dir/src/Square.cpp.o"
   "CMakeFiles/ex01.dir/src/Triangle.cpp.o"

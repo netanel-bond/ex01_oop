@@ -60,6 +60,29 @@ void Vertex::scaledValue(const Vertex& centerValue, Vertex& other, const double 
     other.m_col = centerValue.m_col - (colDif * factor);
     other.m_row = centerValue.m_row - (rowDif * factor);
 }
+bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const double factor)
+{
+    if (factor <=0)
+        return false;
+
+    Vertex center_dot=this->get_center_tri(m_v1,m_v2);
+
+    Vertex new_base_left, new_top,new_base_right;
+
+    this->scaledValue(center_dot,new_base_right,factor);
+    m_v1.scaledValue(center_dot,new_base_left,factor);
+    m_v2.scaledValue(center_dot,new_top,factor);
+    if( new_base_left.isValid(),new_base_right.isValid(),new_top.isValid())
+    {
+        *this=new_base_left;
+        m_v1=new_base_right;
+        m_v2=new_top;
+        return true;
+
+    }
+
+    return false;
+}
 
 bool Vertex::scale_quad(Vertex& m_topRight, const double factor)
 {
@@ -97,7 +120,14 @@ void Vertex::copy_data(const Vertex& topRight, Vertex& m_bottomLeft, Vertex& m_t
     m_topRight.m_row = topRight.m_row;
     m_topRight.m_col = topRight.m_col;
 }
-
+void Vertex::assign_default_tri(Vertex &rightBase, Vertex &top) {
+    this->m_col=20;
+    this->m_row= 20;
+    rightBase.m_col=30;
+    rightBase.m_row=20;
+    top.m_col=25;
+    top.m_row=20+sqrt(75);
+}
 void Vertex::assign_default_quad(Vertex& topRight)
 {
     this->m_col = 20;
