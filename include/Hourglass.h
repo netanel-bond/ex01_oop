@@ -1,6 +1,6 @@
+#pragma once
 #include "Board.h"
 #include "Triangle.h"
-
 
 class Hourglass {
 public:

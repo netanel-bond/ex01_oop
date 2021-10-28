@@ -10,7 +10,8 @@
 
 
 
-
+//------------------------------
+// constructor
 Hourglass::Hourglass(const Triangle& upper, const Triangle& lower)
     :m_upper(upper), m_lower(lower)
 {
@@ -19,16 +20,19 @@ Hourglass::Hourglass(const Triangle& upper, const Triangle& lower)
 
     calc_length_height();
 }
-
+//------------------------------
+// constructor
 Hourglass::Hourglass(const Triangle& lower)
     :m_lower(lower), m_upper(lower)
 {
     m_height = m_lower.getHeight() * 2;
-    Vertex baseLeftUp(m_lower.getVertex(0).m_col, m_lower.getVertex(0).m_row + int(m_height));
-    Vertex baseRightUp(m_lower.getVertex(1).m_col, m_lower.getVertex(1).m_row + int(m_height));
+    Vertex baseLeftUp(m_lower.getVertex(0).m_col,
+                      m_lower.getVertex(0).m_row + int(m_height));
+    Vertex baseRightUp(m_lower.getVertex(1).m_col,
+                       m_lower.getVertex(1).m_row + int(m_height));
 
     if (!(baseLeftUp.isValid() && baseRightUp.isValid()))
-    {
+    {// if not valid assign defualt
         assign_default();
         return;
     }
@@ -44,16 +48,18 @@ Hourglass::Hourglass(const Triangle& lower)
 
     calc_length_height();
 }
-
+//------------------------------
 bool Hourglass::check_tris(const Triangle& lower, const Triangle& upper)
 {
     return (upper.getLength() != lower.getLength() &&
         upper.getVertex(2).m_col != lower.getVertex(2).m_col &&
-        upper.getVertex(2).m_row != lower.getVertex(2).m_row && m_upper.getHeight() > -1);
+        upper.getVertex(2).m_row != lower.getVertex(2).m_row &&
+                                                    m_upper.getHeight() > -1);
 }
 
 
-
+//------------------------------
+//the function assinging the default values for th hourglass
 void Hourglass::assign_default()
 {
 
@@ -77,11 +83,14 @@ void Hourglass::assign_default()
 
     calc_length_height();
 }
-
+//---------------------------------
+//scaleing the hourglass
 bool Hourglass::scale(double factor)
 {
-    Vertex v0=m_lower.getVertex(0),v1=m_lower.getVertex(1),v2=m_lower.getVertex(2),
-           v0up=m_upper.getVertex(0), v1up=m_upper.getVertex(1),v2up=m_upper.getVertex(2);
+    Vertex v0=m_lower.getVertex(0),v1=m_lower.getVertex(1),
+                v2=m_lower.getVertex(2),
+           v0up=m_upper.getVertex(0), v1up=m_upper.getVertex(1),
+                v2up=m_upper.getVertex(2);
 
     bool is_scale_valid = v0.scale_tri(v1,v2,v2,factor) &&
                           v0up.scale_tri(v1up,v2up,v2up,factor);
@@ -99,20 +108,20 @@ bool Hourglass::scale(double factor)
         
     return false;
 }
-
+//------------------------------
 void Hourglass::calc_length_height()
 {
     m_length = m_lower.getLength();
     m_height = m_lower.getHeight() * 2;
 }
-
+//------------------------------
 void Hourglass::draw(Board &board) const
 {
     m_upper.draw(board);
     m_lower.draw(board);
 
 }
-
+//------------------------------
 Rectangle Hourglass::getBoundingRectangle() const
 {
     Vertex bottom_left(m_lower.getVertex(0).m_col,m_lower.getVertex(0).m_row ),
@@ -120,21 +129,26 @@ Rectangle Hourglass::getBoundingRectangle() const
     Rectangle rect(bottom_left,top_right);
     return rect;
 }
+//------------------------------
 Vertex  Hourglass :: getCenter() const
 {
     return m_upper.getVertex(2);
 }
+//------------------------------
 double Hourglass:: getArea()const
 {
     return m_lower.getArea()+m_upper.getArea();
 }
+//------------------------------
 double Hourglass:: getPerimeter() const
 {
     return m_lower.getPerimeter()+m_upper.getPerimeter();
 }
+//------------------------------
 double Hourglass::getLength() const {
     return m_length;
 }
+//------------------------------
 double Hourglass::getHeight() const {
     return m_height;
 }

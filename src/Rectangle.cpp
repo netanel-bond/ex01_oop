@@ -4,7 +4,7 @@
 #include "macros.h"
 #include "Vertex.h"
 
-
+//------------------------------
 Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
@@ -12,11 +12,11 @@ Rectangle::Rectangle(const Vertex& bottomLeft, const Vertex& topRight)
 
 	calc_width_height();
 }
-
+//------------------------------
 Rectangle::Rectangle(const Vertex vertices[2])
 	:Rectangle(vertices[0], vertices[1]) {}
 
-
+//------------------------------
 Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 {
 	m_bottomLeft.m_col = x0;
@@ -28,7 +28,7 @@ Rectangle::Rectangle(double x0, double y0, double x1, double y1)
 
 	calc_width_height();
 }
-
+//------------------------------
 Rectangle::Rectangle(const Vertex& start, double width, double height)
 	:m_bottomLeft(start), m_width(width), m_height(height)
 {
@@ -45,21 +45,21 @@ Rectangle::Rectangle(const Vertex& start, double width, double height)
 
 	calc_width_height();
 }
-
+//------------------------------
 void Rectangle::check_dots(const Vertex& bottomLeft, const Vertex& topRight)
 {
 	if (!(bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight)))
 
 		m_bottomLeft.assign_default_quad(m_topRight);
 }
-
+//------------------------------
 void Rectangle::calc_width_height()
 {
 	m_width = m_topRight.m_col - m_bottomLeft.m_col;
 
 	m_height = m_topRight.m_row - m_bottomLeft.m_row;
 }
-
+//------------------------------
 void Rectangle::draw(Board& board) const
 {
 
@@ -72,19 +72,19 @@ void Rectangle::draw(Board& board) const
 	board.drawLine(m_topRight, topLeft);
 }
 
-
+//------------------------------
 Rectangle Rectangle::getBoundingRectangle() const
 {
 	Rectangle rect(m_bottomLeft, m_topRight);
 
 	return rect;
 }
-
+//------------------------------
 double Rectangle::getArea() const
 {
 	return m_width * m_height;
 }
-
+//------------------------------
 double Rectangle::getPerimeter() const
 {
 //		check if rectangle is just a line
@@ -95,12 +95,12 @@ double Rectangle::getPerimeter() const
 
 	return (m_width * 2 + m_height * 2);
 }
-
+//------------------------------
 Vertex Rectangle::getCenter() const
 {
 	return m_bottomLeft.getCenter_quad(m_topRight);
 }
-
+//------------------------------
 bool Rectangle::scale(double factor)
 {
 	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
@@ -110,22 +110,22 @@ bool Rectangle::scale(double factor)
 
 	return is_scale_valid;
 }
-
+//------------------------------
 Vertex Rectangle::getBottomLeft() const
 {
 	return m_bottomLeft;
 }
-
+//------------------------------
 Vertex Rectangle::getTopRight()const
 {
 	return m_topRight;
 }
-
+//------------------------------
 double Rectangle::getWidth() const
 {
 	return m_width;
 }
-
+//------------------------------
 double Rectangle::getHeight() const
 {
 	return m_height;

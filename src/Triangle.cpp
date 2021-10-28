@@ -7,18 +7,19 @@
 #include "Triangle.h"
 #include "Utilities.h"
 #include <iostream>
-
+//------------------------------
+// geting center
 Vertex Triangle::getCenter() const
 {
     return m_v0.get_center_tri(m_v1,m_v2);
 }
-
+//------------------------------
+// constructors
 Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 :m_v0(v0),m_v1(v1),m_height(height)
 {
 
     Vertex v2=calc_3rd_v(v0, v1,height);
-//add the if to function
     if (check_triangle(v0, v1, v2))
     {
         m_v0.assign_default_tri(m_v1, m_v2);
@@ -26,17 +27,18 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
         calcTriangleLength();
         calcTriangleHeight();
 
-    //calc_3rd_v(v0, v1, height);
 
 
 }
-
+//------------------------------
+// check if traingle is valid or not
 bool Triangle::check_triangle(const Vertex &v0, const Vertex &v1, const Vertex &v2) const {
     return (v0.isValid() && v2.isValid() &&
             doubleEqual(distance(v0, v1),distance(v1, v2) && doubleEqual(v0.m_row,v1.m_row) &&
             doubleEqual(distance(v0, v1), distance(v0, v2))));
 }
-
+//------------------------------
+// constructors
 Rectangle Triangle::getBoundingRectangle() const
 {
     Vertex bottom_left ,top_right;
@@ -58,7 +60,8 @@ Rectangle Triangle::getBoundingRectangle() const
     Rectangle rect(bottom_left, top_right);
     return rect;
 }
-
+//------------------------------
+// sacling the triangle in factor of 2
 bool Triangle::scale(double factor)
 {
    if (m_v0.scale_tri(m_v1,m_v2,m_v0.get_center_tri(m_v1,m_v2),factor))
@@ -75,7 +78,8 @@ void Triangle::draw(Board& board) const
     board.drawLine(m_v1,m_v2);
     board.drawLine(m_v2,m_v0);
 }
-
+//------------------------------
+// calclating the 3rd point of the triangle
 Vertex Triangle::calc_3rd_v(const Vertex &v0, const Vertex &v1,double height)
 {
 
@@ -83,7 +87,8 @@ Vertex Triangle::calc_3rd_v(const Vertex &v0, const Vertex &v1,double height)
     m_v2.m_row=(v0.m_row + height);//need to extract to function
     return m_v2;
 }
-
+//------------------------------
+// constructor with 3 vertices
 Triangle::Triangle(const Vertex vertices[3])
 : m_v0(vertices[0]), m_v1(vertices[1]), m_v2(vertices[2])
 {
@@ -98,7 +103,8 @@ Triangle::Triangle(const Vertex vertices[3])
 
 
 }
-
+//------------------------------
+// calculating the parimiter
 double Triangle::getPerimeter() const
 {
     if (m_v0.m_col==m_v2.m_col)
@@ -107,34 +113,36 @@ double Triangle::getPerimeter() const
     return m_length*3;
 }
 
-
+//------------------------------
+// calculating the are of the triangle
 double Triangle::getArea() const
 {
     if(m_height<0)
         return (m_length*-m_height)/2;
     return (m_length*m_height)/2;
 }
+//------------------------------
 void Triangle::calcTriangleHeight()
 {
-
          m_height=m_v2.m_row-m_v0.m_row;
-
-
 }
-
+//------------------------------
 void Triangle::calcTriangleLength()
 {
     m_length= (m_v1.m_col - m_v0.m_col);
 }
+//------------------------------
 double Triangle::getHeight() const
 {
     return m_height;
 }
+//------------------------------
 double Triangle::getLength() const
 {
     return m_length;
 }
-
+//------------------------------
+// constructor
 Vertex Triangle::getVertex(int index) const {
     switch (index) {
         case 0:

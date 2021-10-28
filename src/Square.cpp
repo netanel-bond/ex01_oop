@@ -3,7 +3,7 @@
 #include <Vertex.h>
 #include <macros.h>
 #include <Square.h>
-
+//------------------------------
 Square::Square(const Vertex& bottomLeft, const Vertex& topRight)
 	:m_bottomLeft(bottomLeft), m_topRight(topRight)
 {
@@ -11,7 +11,7 @@ Square::Square(const Vertex& bottomLeft, const Vertex& topRight)
 
 	calc_length();
 }
-
+//------------------------------
 Square::Square(const Vertex& start, double length)
 	:m_bottomLeft(start)
 {
@@ -28,7 +28,7 @@ Square::Square(const Vertex& start, double length)
 
 	Square(start, topRight);
 }
-
+//------------------------------
 void Square::draw(Board& board) const
 {
 	Vertex topLeft, bottomRight;
@@ -44,26 +44,28 @@ void Square::draw(Board& board) const
 	board.drawLine(m_topRight, bottomRight);
 	board.drawLine(m_topRight, topLeft);
 }
-
+//------------------------------
 void Square::check_dots(const Vertex& bottomLeft, const Vertex& topRight)
 {
-	if (!(bottomLeft.isValid() && topRight.isValid() && bottomLeft.relative_valid_with(topRight)
+	if (!(bottomLeft.isValid() && topRight.isValid() &&
+        bottomLeft.relative_valid_with(topRight)
 		&& are_width_height_equal(bottomLeft, topRight)))
 
 		m_bottomLeft.assign_default_quad(m_topRight);
 }
-
+//------------------------------
 Rectangle Square::getBoundingRectangle() const
 {
 	Rectangle rect(m_bottomLeft, m_topRight);
 
 	return rect;
 }
-
+//------------------------------
 double Square::getArea() const
 {
 	return m_length * m_length;
 }
+//------------------------------
 double Square::getPerimeter() const
 {
 	double width = m_topRight.m_col - m_bottomLeft.m_col;
@@ -76,10 +78,12 @@ double Square::getPerimeter() const
 
 	return m_length * 4;
 }
+//------------------------------
 Vertex Square::getCenter() const
 {
 	return m_bottomLeft.getCenter_quad(m_topRight);
 }
+//------------------------------
 bool Square::scale(double factor)
 {
 	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
@@ -89,23 +93,24 @@ bool Square::scale(double factor)
 
 	return is_scale_valid;
 }
-
+//------------------------------
 Vertex Square::getBottomLeft() const
 {
 	return m_bottomLeft;
 }
-
+//------------------------------
 Vertex Square::getTopRight() const
 {
 	return m_topRight;
 }
-
+//------------------------------
 double Square::getLength() const
 {
 	return m_length;
 }
-
-bool Square::are_width_height_equal(const Vertex& bottomLeft, const Vertex& topRight)
+//------------------------------
+bool Square::are_width_height_equal(const Vertex& bottomLeft,
+                                    const Vertex& topRight)
 {
 	double width = topRight.m_col - bottomLeft.m_col;
 	double height = topRight.m_row - bottomLeft.m_row;
@@ -115,7 +120,7 @@ bool Square::are_width_height_equal(const Vertex& bottomLeft, const Vertex& topR
 
 	return width - height == 0;
 }
-
+//------------------------------
 void Square::calc_length()
 {
 	m_length = m_topRight.m_col - m_bottomLeft.m_col;
