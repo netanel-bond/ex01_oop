@@ -59,6 +59,7 @@ bool Triangle::scale(double factor)
    if (m_v0.scale_tri(m_v1,m_v2, factor)) {
 
        m_factor = factor;
+       calcTriangleLengh();
        return true;
    }
    return false;
@@ -93,22 +94,23 @@ Triangle::Triangle(const Vertex vertices[3])
     calcTriangleLengh();
     calcTriangleHeight();
     std::cout<< "height" << m_height;
+
 }
 
 double Triangle::getPerimeter() const
 {
     if (m_v0.m_col==m_v2.m_col)
-        return m_lengh*m_factor;
+        return m_lengh;
 
-    return m_lengh*3*m_factor;
+    return m_lengh*3;
 }
 
 
 double Triangle::getArea() const
 {
     if(m_height<0)
-        return (m_lengh*-m_height)/2*m_factor;
-    return (m_lengh*m_height)/2*m_factor;
+        return (m_lengh*-m_height)/2;
+    return (m_lengh*m_height)/2;
 }
 void Triangle::calcTriangleHeight()
 {

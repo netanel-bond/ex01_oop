@@ -14,12 +14,6 @@ string
 Vertex.h
 ../include/Vertex.h
 
-../include/Hourglass.h
-Board.h
-../include/Board.h
-Triangle.h
-../include/Triangle.h
-
 ../include/Rectangle.h
 Board.h
 ../include/Board.h
@@ -40,15 +34,15 @@ Vertex.h
 iosfwd
 -
 
-/Users/bar/CLionProjects/ex01_oop_workinig/src/Hourglass.cpp
-Hourglass.h
-/Users/bar/CLionProjects/ex01_oop_workinig/src/Hourglass.h
+/Users/bar/CLionProjects/ex01_oop_workinig/src/Triangle.cpp
 iomanip
 -
-iostream
--
-Utilities.h
-/Users/bar/CLionProjects/ex01_oop_workinig/src/Utilities.h
 Vertex.h
 /Users/bar/CLionProjects/ex01_oop_workinig/src/Vertex.h
+Triangle.h
+/Users/bar/CLionProjects/ex01_oop_workinig/src/Triangle.h
+Utilities.h
+/Users/bar/CLionProjects/ex01_oop_workinig/src/Utilities.h
+iostream
+-
 

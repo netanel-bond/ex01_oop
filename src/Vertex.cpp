@@ -4,24 +4,10 @@
 #include <iostream>
 Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
 {
-
-    bool same_col = this->m_col - top.m_col == 0;
-    bool same_row = this->m_row - top.m_row == 0;
-
-    //		check if both dots are the same
-    if (same_col && same_row)
-        return *this;
-
     Vertex center_dot;
 
     center_dot.m_col=(this->m_col+baseRight.m_col+top.m_col)/3;
     center_dot.m_row=(this->m_row+baseRight.m_row+top.m_row)/3;
-
-    if (same_col)
-        center_dot.m_col = this->m_col;
-
-    else if (same_row)
-        center_dot.m_row = this->m_row;
 
     return center_dot;
 }
@@ -69,8 +55,8 @@ bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const double factor)
 
     Vertex new_base_left, new_top,new_base_right;
 
-    this->scaledValue(center_dot,new_base_right,factor);
-    m_v1.scaledValue(center_dot,new_base_left,factor);
+    this->scaledValue(center_dot,new_base_left,factor);
+    m_v1.scaledValue(center_dot,new_base_right,factor);
     m_v2.scaledValue(center_dot,new_top,factor);
     if( new_base_left.isValid(),new_base_right.isValid(),new_top.isValid())
     {
