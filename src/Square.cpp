@@ -62,7 +62,7 @@ Rectangle Square::getBoundingRectangle() const
 
 double Square::getArea() const
 {
-	return m_length * m_length * m_factor * m_factor;
+	return m_length * m_length;
 }
 double Square::getPerimeter() const
 {
@@ -74,7 +74,7 @@ double Square::getPerimeter() const
 	if (height == 0)
 		return width;
 
-	return m_length * 4 * m_factor;
+	return m_length * 4;
 }
 Vertex Square::getCenter() const
 {
@@ -85,7 +85,7 @@ bool Square::scale(double factor)
 	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
 
 	if (is_scale_valid)
-		m_factor = factor;
+		calc_length();
 
 	return is_scale_valid;
 }
@@ -102,7 +102,7 @@ Vertex Square::getTopRight() const
 
 double Square::getLength() const
 {
-	return m_length * m_factor;
+	return m_length;
 }
 
 bool Square::are_width_height_equal(const Vertex& bottomLeft, const Vertex& topRight)

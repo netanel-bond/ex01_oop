@@ -72,7 +72,7 @@ bool Vertex::scale_tri(Vertex& m_v1 , Vertex& m_v2,const double factor)
     this->scaledValue(center_dot,new_base_right,factor);
     m_v1.scaledValue(center_dot,new_base_left,factor);
     m_v2.scaledValue(center_dot,new_top,factor);
-    if( new_base_left.isValid(),new_base_right.isValid(),new_top.isValid())
+    if( new_base_left.isValid() && new_base_right.isValid() && new_top.isValid())
     {
         *this=new_base_left;
         m_v1=new_base_right;

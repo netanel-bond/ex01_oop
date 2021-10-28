@@ -82,7 +82,7 @@ Rectangle Rectangle::getBoundingRectangle() const
 
 double Rectangle::getArea() const
 {
-	return m_width * m_height * m_factor * m_factor;
+	return m_width * m_height;
 }
 
 double Rectangle::getPerimeter() const
@@ -93,7 +93,7 @@ double Rectangle::getPerimeter() const
 	else if (m_bottomLeft.m_row - m_topRight.m_row == 0)
 		return m_width;
 
-	return (m_width * 2 + m_height * 2) * m_factor;
+	return (m_width * 2 + m_height * 2);
 }
 
 Vertex Rectangle::getCenter() const
@@ -106,7 +106,7 @@ bool Rectangle::scale(double factor)
 	bool is_scale_valid =  m_bottomLeft.scale_quad(m_topRight, factor);
 
 	if (is_scale_valid)
-		m_factor = factor;
+		calc_width_height();
 
 	return is_scale_valid;
 }

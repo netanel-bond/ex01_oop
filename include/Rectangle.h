@@ -22,7 +22,7 @@ public:
 	Vertex getBottomLeft() const;
 	Vertex getTopRight() const;
 
-	double getWidth() const;// i think you didnt use this eather
+	double getWidth() const;
 	double getHeight() const;
 
 	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
@@ -33,5 +33,5 @@ private:
 
 //		members
 	Vertex m_bottomLeft, m_topRight;
-	double m_width, m_height, m_factor = 1;
+	double m_width, m_height;
 };

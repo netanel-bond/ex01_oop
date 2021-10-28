@@ -42,6 +42,7 @@ Rectangle Triangle::getBoundingRectangle() const
         bottom_left.m_row=m_v2.m_row;
         top_right.m_col=m_v1.m_col;
         top_right.m_row=m_v1.m_row;
+
     } else {
         bottom_left.m_col = m_v0.m_col;
         bottom_left.m_row = m_v0.m_row;
@@ -64,6 +65,7 @@ bool Triangle::scale(double factor)
    return false;
 
 }
+
 void Triangle::draw(Board& board) const
 {
     board.drawLine(m_v0, m_v1);
@@ -128,7 +130,7 @@ double Triangle::getHeight() const
 }
 double Triangle::getLength() const
 {
-    return m_lengh;
+    return m_lengh * m_factor;
 }
 
 Vertex Triangle::getVertex(int index) const {
