@@ -13,7 +13,6 @@ public:
 	Vertex getBottomLeft() const;
 	Vertex getTopRight()const ;
 	double getLength() const;
-	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
 
 //		general functions
 	void draw(Board& board) const;
@@ -27,6 +26,7 @@ private:
 //		helper functions
 	void calc_length();
 	bool are_width_height_equal(const Vertex& bottomLeft, const Vertex& topRight);
+	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
 
 
 //		members

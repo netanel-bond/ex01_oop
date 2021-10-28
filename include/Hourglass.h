@@ -19,6 +19,7 @@ public:
 	double getHeight() const;
 
 private:
-
+    void assign_default();
+    Triangle m_lower, m_upper;
     double m_length , m_height;
 };

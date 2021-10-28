@@ -10,14 +10,6 @@ public:
 	Rectangle(double x0, double y0, double x1, double y1);
 	Rectangle(const Vertex& start, double width, double height);
 
-//		general functions
-	void draw(Board& board) const;
-	Rectangle getBoundingRectangle() const;
-	double getArea() const;
-	double getPerimeter() const;
-	Vertex getCenter() const;
-	bool scale(double factor);
-	
 //		specific functions
 	Vertex getBottomLeft() const;
 	Vertex getTopRight() const;
@@ -25,11 +17,19 @@ public:
 	double getWidth() const;
 	double getHeight() const;
 
-	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
+
+//		general functions
+	void draw(Board& board) const;
+	Rectangle getBoundingRectangle() const;
+	double getArea() const;
+	double getPerimeter() const;
+	Vertex getCenter() const;
+	bool scale(double factor);
 
 private:
 //		helper functions
 	void calc_width_height();
+	void check_dots(const Vertex& bottomLeft, const Vertex& topRight);
 
 //		members
 	Vertex m_bottomLeft, m_topRight;
