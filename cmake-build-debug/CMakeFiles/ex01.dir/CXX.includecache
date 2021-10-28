@@ -6,17 +6,49 @@
 
 #IncludeRegexTransform: 
 
+../include/Board.h
+vector
+-
+string
+-
+Vertex.h
+../include/Vertex.h
+
+../include/Hourglass.h
+Board.h
+../include/Board.h
+Triangle.h
+../include/Triangle.h
+
+../include/Rectangle.h
+Board.h
+../include/Board.h
+
+../include/Triangle.h
+Board.h
+../include/Board.h
+Rectangle.h
+../include/Rectangle.h
+Vertex.h
+../include/Vertex.h
+
+../include/Utilities.h
+Vertex.h
+../include/Vertex.h
+
 ../include/Vertex.h
 iosfwd
 -
 
-../include/macros.h
-
-/Users/bar/CLionProjects/ex01_oop_workinig/src/Vertex.cpp
-Vertex.h
-/Users/bar/CLionProjects/ex01_oop_workinig/src/Vertex.h
-macros.h
-/Users/bar/CLionProjects/ex01_oop_workinig/src/macros.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.cpp
+Hourglass.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Hourglass.h
+iomanip
+-
 iostream
 -
+Utilities.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Utilities.h
+Vertex.h
+/Users/bar/CLionProjects/ex01_oop/netnal-oop/src/Vertex.h
 

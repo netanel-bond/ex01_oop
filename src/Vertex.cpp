@@ -2,6 +2,8 @@
 #include "macros.h"
 
 #include <iostream>
+#include <cmath>
+
 Vertex Vertex::get_center_tri(const Vertex& baseRight, const Vertex& top)const
 {
     Vertex center_dot;
