@@ -10,7 +10,8 @@
 Hourglass::Hourglass(const Triangle& upper,const Triangle& lower)
 {
     if(upper.getLength() != lower.getLength() &&
-        upper.getHeight()!=-lower.getHeight())
+        upper.getVertex(2).m_col!=lower.getVertex(2).m_col&&
+        upper.getVertex(2).m_row !=lower.getVertex(2).m_row)
     {
 
     }
