@@ -18,21 +18,26 @@ Triangle::Triangle(const Vertex& v0, const Vertex& v1, double height)
 
     Vertex v2=calc_3rd_v(v0, v1,height);
 //add the if to function
-    if (!(v0.isValid() && v2.isValid() &&
-        doubleEqual(distance(v0, v1),distance(v1, v2) && v0.m_row==v1.m_row &&
-        doubleEqual(distance(v0, v1), distance(v0, v2)))))
+    if (!check_triangle(v0, v1, v2))
     {
 
         m_v0.assign_default_tri(m_v1, m_v2);
 
     }
-        calcTriangleLengh();
+        calcTriangleLength();
         calcTriangleHeight();
 
     //calc_3rd_v(v0, v1, height);
 
 
 }
+
+bool Triangle::check_triangle(const Vertex &v0, const Vertex &v1, const Vertex &v2) const {
+    return (v0.isValid() && v2.isValid() &&
+                doubleEqual(distance(v0, v1),distance(v1, v2) && v0.m_row==v1.m_row &&
+            doubleEqual(distance(v0, v1), distance(v0, v2))));
+}
+
 Rectangle Triangle::getBoundingRectangle() const
 {
     Vertex bottom_left ,top_right;
@@ -57,9 +62,9 @@ Rectangle Triangle::getBoundingRectangle() const
 
 bool Triangle::scale(double factor)
 {
-   if (m_v0.scale_tri(m_v1,m_v2, factor)) {
-
-       m_factor = factor;
+   if (m_v0.scale_tri(m_v1,m_v2, factor))
+   {
+       calcTriangleLength();
        return true;
    }
    return false;
@@ -86,31 +91,29 @@ Triangle::Triangle(const Vertex vertices[3])
 {
     calcTriangleHeight();
 
-    if (!(vertices[0].isValid() && vertices[1].isValid() && vertices[2].isValid() &&
-        vertices[0].m_row==vertices[1].m_row &&
-            doubleEqual(distance(vertices[0],vertices[1]),distance(vertices[0],vertices[2])) &&
-            doubleEqual(distance(vertices[0],vertices[1]),distance(vertices[1],vertices[2]))))
+    if (!(check_triangle(vertices[0], vertices[1], vertices[2])))
          m_v0.assign_default_tri(m_v1,m_v2);
 
-    calcTriangleLengh();
+    calcTriangleLength();
     calcTriangleHeight();
     std::cout<< "height" << m_height;
+
 }
 
 double Triangle::getPerimeter() const
 {
     if (m_v0.m_col==m_v2.m_col)
-        return m_lengh*m_factor;
+        return m_length;
 
-    return m_lengh*3*m_factor;
+    return m_length*3;
 }
 
 
 double Triangle::getArea() const
 {
     if(m_height<0)
-        return (m_lengh*-m_height)/2*m_factor;
-    return (m_lengh*m_height)/2*m_factor;
+        return (m_length*-m_height)/2;
+    return (m_length*m_height)/2;
 }
 void Triangle::calcTriangleHeight()
 {
@@ -120,9 +123,9 @@ void Triangle::calcTriangleHeight()
 
 }
 
-void Triangle::calcTriangleLengh()
+void Triangle::calcTriangleLength()
 {
-    m_lengh= (m_v1.m_col - m_v0.m_col);
+    m_length= (m_v1.m_col - m_v0.m_col);
 }
 double Triangle::getHeight() const
 {
@@ -130,7 +133,7 @@ double Triangle::getHeight() const
 }
 double Triangle::getLength() const
 {
-    return m_lengh * m_factor;
+    return m_length;
 }
 
 Vertex Triangle::getVertex(int index) const {
