@@ -40,4 +40,4 @@ Known bugs:
         Not that we know of 🙂
 
 
-Other comments:ßr
+Other comments:
